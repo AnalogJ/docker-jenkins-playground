@@ -1,0 +1,47 @@
+version: '2'
+
+services:
+
+
+  # LDAP Plugin config
+  # Server ldap.codebiner.com:10389
+  # RootDN: <blank>
+  # Allow blank rootDN: true
+  # User search base: ou=people,dc=codebiner,dc=com
+  # Group search base: ou=people,dc=codebiner,dc=com
+  # Manager DN:  cn=admin,dc=codebiner,dc=com
+  # Manager Password: GoodNewsEveryone
+
+  # with LDAP_FORCE_STARTTLS: "true" we get an error message "LDAP: error code 13 - TLS confidentiality required"
+  # with LDAP_FORCE_STARTTLS: <blank> we get success
+
+  jenkins:
+    container_name: jenkins
+#    image: jenkins/jenkins:2.277.4-lts
+    build: .
+    ports:
+      - '8080:8080'
+      - '50001:50001'
+
+  ldap:
+    container_name: ldap
+    # use the image tag to pull directly from the repo
+    image: ghcr.io/analogj/docker-openldap-starttls:master
+    environment:
+      LDAP_FORCE_STARTTLS: "true"
+      LDAP_DOMAIN: "codebiner.com"
+      LDAP_BASEDN: "dc=codebiner,dc=com"
+      LDAP_ORGANISATION: "codebiner, Inc."
+      LDAP_BINDDN: "cn=admin,dc=codebiner,dc=com"
+    # use build tag to use the local repo
+    #        build:
+    #            context: ./
+    #            dockerfile: ./Dockerfile
+    ports:
+      - '10389:10389'
+      - '10636:10636'
+    volumes:
+      - ./ldap:/etc/ldap/ssl/
+#
+#volumes:
+#    data_volume:
