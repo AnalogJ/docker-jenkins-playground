@@ -15,6 +15,7 @@ Jenkins.instance.pluginManager.plugins.collect {
 | - | - | export the Java Truststore, check if the certificate matches | stupidly difficult to test this |
 | - | - | write a POC Java class to test hardcoded LDAP auth | working (replicates issue, force STARTTLS fails, passes otherwise) |
 | - | - | write a POC Java class to test StartTLS hardcoded LDAP auth | working, force STARTTLS passes, passes otherwise as well :party: |
+| - | - | write a POC Spring application | working (test/spring/*) |
 
 
 # References
