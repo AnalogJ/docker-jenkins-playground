@@ -6,21 +6,44 @@
  */
 
 
-
 plugins {
     id 'application'
 }
 repositories {
+//    jcenter()
+
+//    maven {
+//        url "https://repo.jenkins-ci.org/public/"
+//    }
     mavenCentral()
-    jcenter()
+
 }
 
 dependencies {
     testImplementation 'junit:junit:4.13.1'
     implementation 'com.google.guava:guava:30.0-jre'
-    implementation 'org.springframework:spring-beans:4.3.7.RELEASE'
+    implementation 'org.springframework.security:spring-security-core:4.2.20.RELEASE'
+    implementation 'org.springframework.security:spring-security-web:4.2.20.RELEASE'
+    implementation 'org.springframework.security:spring-security-config:4.2.20.RELEASE'
+    implementation 'org.springframework.security:spring-security-ldap:4.2.20.RELEASE'
+    implementation 'org.springframework.ldap:spring-ldap-core:2.3.4.RELEASE'
+    implementation 'org.springframework.ldap:spring-ldap-test:2.3.4.RELEASE'
+    implementation 'org.apache.directory.server:apacheds-all:2.0.0.AM25'
 }
 
 application {
     mainClass = 'SpringCoreDemoApp'
 }
+
+//jar {
+//    exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'
+//    manifest {
+//        attributes 'Main-Class': 'HelloWorld'
+//    }
+//    from (configurations.runtimeClasspath.collect { entry -> zipTree(entry) }) {
+//        exclude 'META-INF/MANIFEST.MF'
+//        exclude 'META-INF/*.SF'
+//        exclude 'META-INF/*.DSA'
+//        exclude 'META-INF/*.RSA'
+//    }
+//}

@@ -16,7 +16,7 @@ Jenkins.instance.pluginManager.plugins.collect {
 | - | - | write a POC Java class to test hardcoded LDAP auth | working (replicates issue, force STARTTLS fails, passes otherwise) |
 | - | - | write a POC Java class to test StartTLS hardcoded LDAP auth | working, force STARTTLS passes, passes otherwise as well :party: |
 | - | - | write a POC Spring application | working (test/spring/*) |
-
+| - | - | write a POC SPring application with StartTLS enabled | working (test/spring/*), force STARTTLS passes, non-STARTTLS passes |
 
 # References
 - https://docs.oracle.com/javase/jndi/tutorial/ldap/ext/src/StartTls.java
