@@ -3,15 +3,6 @@ import javax.naming.directory.*;
 import javax.naming.*;
 import javax.naming.ldap.*;
 
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.SSLPeerUnverifiedException;
-import java.security.cert.Certificate;
-///https://roufid.com/java-ldap-ssl-authentication/
-
-
-
-
 class LdapTest
 {
 
@@ -28,7 +19,7 @@ class LdapTest
         Hashtable<String, String> env = new Hashtable<String, String>();
         env.put(Context.PROVIDER_URL, "ldap://ldap.codebiner.com:10389");
         env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
-        
+
         LdapContext ctx = null;
         StartTlsResponse tls = null;
         try {
@@ -94,21 +85,5 @@ class LdapTest
 //            e.printStackTrace();
 //        }
 
-    }
-}
-
-class SampleVerifier implements HostnameVerifier {
-    public boolean verify(String hostname, SSLSession session) {
-        System.out.println("Checking: " + hostname + " in");
-        try {
-            Certificate[] cert = session.getPeerCertificates();
-            for (int i = 0; i < cert.length; i++) {
-                System.out.println(cert[i]);
-            }
-        } catch (SSLPeerUnverifiedException e) {
-            return false;
-        }
-
-        return true; 	    // Never do this
     }
 }

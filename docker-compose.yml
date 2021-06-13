@@ -28,7 +28,7 @@ services:
     # use the image tag to pull directly from the repo
     image: ghcr.io/analogj/docker-openldap-starttls:master
     environment:
-      LDAP_FORCE_STARTTLS: "true"
+#      LDAP_FORCE_STARTTLS: "true"
       LDAP_DOMAIN: "codebiner.com"
       LDAP_BASEDN: "dc=codebiner,dc=com"
       LDAP_ORGANISATION: "codebiner, Inc."
