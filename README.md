@@ -12,10 +12,10 @@ Jenkins.instance.pluginManager.plugins.collect {
 | latest | 2.7 | | fails force STARTTLS |
 | 2.277.4-lts | 2.7 | adding certificate to the  JVM | fails force STARTTLS |
 | - | - | export the Java Truststore, check if the certificate matches | stupidly difficult to test this |
-| - | - | write a POC Java class to test hardcoded LDAP auth | working (replicates issue, force STARTTLS fails, passes otherwise) |
-| - | - | write a POC Java class to test StartTLS hardcoded LDAP auth | working, force STARTTLS passes, passes otherwise as well :party: |
-| - | - | write a POC Spring application | working (test/spring/*) |
-| - | - | write a POC SPring application with StartTLS enabled | working (test/spring/*), force STARTTLS passes, non-STARTTLS passes |
+| - | - | write a [POC Java class](./test/ldap_test.java) to test hardcoded LDAP auth | working (replicates issue, force STARTTLS fails, passes otherwise) |
+| - | - | write a [POC Java class](./test/ldap_test.java)  to test StartTLS hardcoded LDAP auth | working, force STARTTLS passes, passes otherwise as well :party: |
+| - | - | write a [POC Spring application](./test/spring/src/main/java/HelloWorld.java) | working (test/spring/*) |
+| - | - | write a [POC Spring application](./test/spring/src/main/java/HelloWorld.java) with StartTLS enabled | working (test/spring/*), force STARTTLS passes, non-STARTTLS passes |
 | - | - | build the custom plugin using `mvn package -Dmaven.test.skip=true`, install it in Jenkins instance | Working! |
 # References
 - https://docs.oracle.com/javase/jndi/tutorial/ldap/ext/src/StartTls.java
