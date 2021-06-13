@@ -10,7 +10,6 @@ Jenkins.instance.pluginManager.plugins.collect {
 | --- | --- | --- | --- |
 | 2.277.4-lts | 2.7 | | fails force STARTTLS |
 | latest | 2.7 | | fails force STARTTLS |
-
 | 2.277.4-lts | 2.7 | adding certificate to the  JVM | fails force STARTTLS |
 | - | - | export the Java Truststore, check if the certificate matches | stupidly difficult to test this |
 | - | - | write a POC Java class to test hardcoded LDAP auth | working (replicates issue, force STARTTLS fails, passes otherwise) |
