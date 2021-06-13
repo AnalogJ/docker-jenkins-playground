@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y jq ldap-utils ca-certificates \
 
 USER jenkins
 
+COPY --chown=jenkins:jenkins ldap.hpi /usr/share/jenkins/ref/plugins/
 
 COPY --chown=jenkins:jenkins plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
